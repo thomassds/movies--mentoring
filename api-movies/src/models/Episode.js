@@ -36,10 +36,6 @@ Episode.init(
     modelName: "episodes",
     timestamps: true,
   }
-  /* static associate(models) {
-    this.belongsTo(models.Episode, { foreignKey: 'id_movie', as: 'movie'});
-    this.belongsTo(models.Episode, { foreignKey: 'id_season', as: 'season'});
-  } */
 );
 
 module.exports = Episode;

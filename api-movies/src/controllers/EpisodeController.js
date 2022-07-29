@@ -5,6 +5,14 @@ class EpisodeController {
     const { id_movie, id_season } = req.params;
     const { number, title, synopsis, time } = req.body;
 
+    if (!id_movie) {
+      return res.status(404).json({ error: "Movie id is required" });
+    }
+
+    if (!id_season) {
+      return res.status(404).json({ error: "Season id is required" });
+    }
+
     if (!number) {
       return res.status(404).json({ error: "Episode name is required" });
     }
@@ -71,6 +79,18 @@ class EpisodeController {
   async update(req, res) {
     const { id, id_movie, id_season } = req.params;
     const { number, title, synopsis, time } = req.body;
+
+    if (!id) {
+      return res.status(404).json({ error: "Episode id is required" });
+    }
+
+    if (!id_movie) {
+      return res.status(404).json({ error: "Movie id is required" });
+    }
+
+    if (!id_season) {
+      return res.status(404).json({ error: "Season id is required" });
+    }
 
     try {
       const response = await Episode.update(

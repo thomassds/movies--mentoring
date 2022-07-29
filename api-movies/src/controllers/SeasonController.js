@@ -20,6 +20,10 @@ class SeasonController {
   async getOne(req, res) {
     const { id } = req.params;
 
+    if(!id) {
+      return res.status(404).json({ error: "Season id is required"})
+    }
+
     try {
       const response = await Season.findByPk(id);
 
@@ -59,6 +63,13 @@ class SeasonController {
   async update(req, res) {
     const { id, id_movie } = req.params;
     const { number, description } = req.body
+
+    if(!id) {
+      return res.status(404).json({ error: "Season id is required" });
+    }
+    if(!id_movie) {
+      return res.status(404).json({ error: "Movie id is required" });
+    }
 
     try {
       const response = await Season.update(

@@ -1,48 +1,39 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
 
-class Movie extends Model {}
+class Episode extends Model {}
 
-Movie.init(
+Episode.init(
   {
-    name: {
+    id_movie: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    id_season: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    number: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    category: {
+    title: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    time: {
-      type: DataTypes.STRING,
-      allowNull: true,
     },
     synopsis: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    avaliation: {
-      type: DataTypes.FLOAT,
-      allowNull: true,
       defaultValue: 0,
     },
-    director: {
+    time: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    release_year: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    serie: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-      defaultValue: false,
     },
   },
   {
     sequelize,
-    modelName: "movies",
+    modelName: "episodes",
     timestamps: true,
   }
   /* static associate(models) {
@@ -51,4 +42,4 @@ Movie.init(
   } */
 );
 
-module.exports = Movie;
+module.exports = Episode;

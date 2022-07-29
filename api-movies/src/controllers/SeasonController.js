@@ -89,6 +89,9 @@ class SeasonController {
   async delete(req, res) {
     const { id } = req.params;
 
+    if(!id) {
+      return res.status(400).json({ error: "Season id is required"});
+    }
     try {
       await Season.destroy({ where: { id }});
 

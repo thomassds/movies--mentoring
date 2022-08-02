@@ -1,6 +1,8 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
 
+const Seasons = require("../models/SeasonModel");
+
 class Movie extends Model {}
 
 Movie.init(
@@ -45,10 +47,8 @@ Movie.init(
     modelName: "movies",
     timestamps: true,
   }
-  /* static associate(models) {
-    this.belongsTo(models.Episode, { foreignKey: 'id_movie', as: 'movie'});
-    this.belongsTo(models.Episode, { foreignKey: 'id_season', as: 'season'});
-  } */
 );
+
+Movie.hasMany(Seasons, { foreignKey: "id_movie", as: "seasons" });
 
 module.exports = Movie;

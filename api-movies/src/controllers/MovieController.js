@@ -49,9 +49,7 @@ class MovieController {
 
   async getAll(req, res) {
     try {
-      const response = await Movie.findAll({
-        include: [{ association: "seasons" }],
-      });
+      const response = await Movie.findAll();
 
       return res.json(response);
     } catch (error) {

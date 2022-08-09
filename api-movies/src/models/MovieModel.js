@@ -1,6 +1,8 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
 
+const Seasons = require("../models/SeasonModel");
+
 class Movie extends Model {}
 
 Movie.init(
@@ -46,5 +48,7 @@ Movie.init(
     timestamps: true,
   }
 );
+
+Movie.hasMany(Seasons, { foreignKey: "id_movie", as: "seasons" });
 
 module.exports = Movie;

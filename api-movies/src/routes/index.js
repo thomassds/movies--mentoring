@@ -5,6 +5,7 @@ const CastController = require("../controllers/CastController");
 const ActorController = require("../controllers/ActorController");
 const SeasonController = require("../controllers/SeasonController");
 const EpisodeController = require("../controllers/EpisodeController");
+const UsersController = require("../controllers/UsersController");
 
 const routes = Router();
 
@@ -46,5 +47,12 @@ routes.get("/actors/:id", ActorController.getOne);
 routes.post("/actors", ActorController.store);
 routes.put("/actors/:id", ActorController.update);
 routes.delete("/actors/:id", ActorController.delete);
+
+//Users
+routes.post("/users", UsersController.store);
+routes.get("/users", UsersController.GetAll);
+routes.get("/users/:id", UsersController.GetOne);
+routes.put("/users/:id", UsersController.update);
+routes.delete("/users/:id", UsersController.delete);
 
 module.exports = { routes };

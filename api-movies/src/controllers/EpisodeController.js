@@ -1,4 +1,4 @@
-const Episode = require("../models/Episode");
+const Episode = require("../models/EpisodeModel");
 
 class EpisodeController {
   async store(req, res) {

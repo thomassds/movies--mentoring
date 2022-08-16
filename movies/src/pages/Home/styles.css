@@ -1,0 +1,39 @@
+.div-home-page {
+  width: 100%;
+  min-height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 32px;
+}
+
+.div-title-home-page {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+  gap: 24px;
+}
+
+.title-home-page {
+  font-size: 48px;
+}
+
+.title1-home-page {
+  color: #f26680;
+}
+
+.title2-home-page {
+  color: #f2f2f2;
+}
+
+.section-home-page {
+  width: 100%;
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 80px;
+}
